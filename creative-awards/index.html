@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>Creative Awards 2026 | Sprints &amp; Sneakers</title>
+<meta name="description" content="Every month we crown the coolest thing Sprints &amp; Sneakers made. Explore all winning cases of this year and see why each one won.">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================
+   DESIGN TOKENS (derived from the main S&S website)
+   ========================================================== */
+:root {
+  --bg: #0A0A0A;
+  --panel: #131313;
+  --panel-2: #191919;
+  --text: #EAEAEA;
+  --muted: rgba(255,255,255,.68);
+  --white: #FFFFFF;
+  --lime: #A6FF00;
+  --lime-border: rgba(166,255,0,.5);
+  --line: rgba(255,255,255,.12);
+  --radius-card: 24px;
+  --radius-img: 14px;
+  --maxw: 1280px;
+  --font: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --grad-lime-card:
+    linear-gradient(184.5deg, rgba(166,255,0,0.043) 17.4%, rgba(166,255,0,0.30) 83%),
+    linear-gradient(80.4deg, rgba(255,255,255,0.20) 11.1%, rgba(255,255,255,0.035) 113.3%);
+  --grad-lime-btn:
+    linear-gradient(191deg, rgba(166,255,0,0.05) 17.4%, rgba(166,255,0,0.30) 83%),
+    linear-gradient(86deg, rgba(166,255,0,0.20) 11.1%, rgba(166,255,0,0.04) 113.3%);
+  --grad-white-btn:
+    linear-gradient(191deg, rgba(255,255,255,0.05) 17.4%, rgba(255,255,255,0.30) 83%),
+    linear-gradient(86deg, rgba(255,255,255,0.20) 11.1%, rgba(255,255,255,0.04) 113.3%);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--bg); scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+  background: var(--bg); color: var(--text);
+  font-family: var(--font); line-height: 1.5; -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3, h4, p, ul, ol, figure, blockquote { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+[tabindex="-1"]:focus { outline: none; }
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
+@media (min-width: 768px) { .container { padding: 0 32px; } }
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+.site-header { position: absolute; inset: 0 0 auto 0; z-index: 50; }
+.site-header__inner { display: flex; justify-content: space-between; align-items: center; padding: 20px 16px; }
+.glass-pill {
+  display: inline-flex; align-items: center; gap: 8px; height: 41px;
+  padding: 0 16px 0 14px; border-radius: 999px; text-decoration: none; border: 0;
+  background: rgba(23,23,23,0.25);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  box-shadow: 0 0 1px rgba(0,0,0,.1), 0 .5px 4px rgba(0,0,0,.1),
+              inset 1.5px 1.5px .25px -1.75px #fff, inset 1px 1px .25px -1px #262626,
+              inset -1px -1px .25px -1px #262626, inset 0 0 0 .5px rgba(166,166,166,.5),
+              inset 0 0 4px rgba(242,242,242,.3);
+  color: var(--white); font-size: 16px; line-height: 1;
+  transition: transform .2s, filter .2s;
+}
+.glass-pill:hover { transform: scale(1.03); filter: brightness(1.1); }
+.glass-pill svg { width: 20px; height: 20px; flex: none; }
+.glass-pill .label-desktop { display: none; }
+@media (min-width: 768px) { .glass-pill .label-desktop { display: inline; } .glass-pill .label-mobile { display: none; } }
+
+/* Text logo as placeholder. Replace with: <img src="/uploads/main-logo.svg" width="152" height="34" alt="Sprints & Sneakers"> */
+.logo { text-decoration: none; color: var(--white); font-weight: 800; font-size: 15px; line-height: .95; text-transform: uppercase; letter-spacing: -.01em; }
+
+/* ==========================================================
+   SHARED UI
+   ========================================================== */
+.breadcrumb ol { display: flex; align-items: center; gap: 8px; min-width: 0; padding: 8px 16px; border: 1px solid var(--lime); border-radius: 12px; }
+.breadcrumb li { display: flex; align-items: center; gap: 8px; min-width: 0; font-size: 14px; font-weight: 500; color: var(--white); }
+@media (min-width: 768px) { .breadcrumb li { font-size: 16px; } }
+.breadcrumb a { text-decoration: none; display: inline-flex; }
+.breadcrumb a:hover { color: var(--lime); }
+.breadcrumb svg { flex: none; }
+.breadcrumb .chev { opacity: .5; }
+.breadcrumb [aria-current] { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 16px; border-radius: 999px; border: 0; text-decoration: none;
+  color: var(--white); font-size: 14px; font-weight: 400; line-height: 1.2;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.15);
+  transition: transform .2s, filter .2s;
+}
+@media (min-width: 768px) { .btn { padding: 16px 20px; font-size: 20px; } }
+.btn:hover { transform: scale(1.03); filter: brightness(1.1); }
+.btn--lime { background: var(--grad-lime-btn); }
+.btn--glass { background: var(--grad-white-btn); }
+.btn--sm { padding: 8px 12px; font-size: 14px; }
+@media (min-width: 640px) { .btn--sm { padding: 8px 16px; font-size: 16px; } }
+@media (min-width: 768px) { .btn--sm { font-size: 18px; } }
+.btn--md { padding: 12px 20px; font-size: 16px; }
+.btn[aria-disabled="true"] { opacity: .55; cursor: default; pointer-events: none; }
+.btn svg { width: 16px; height: 16px; flex: none; }
+
+.pill {
+  display: inline-flex; align-self: flex-start; align-items: center; padding: 6px 18px; border-radius: 999px;
+  border: 1px solid var(--lime); color: var(--white); font-size: 15px; line-height: 1.2; background: rgba(166,255,0,.04);
+}
+.pill--sm { padding: 3px 12px; font-size: 13px; }
+@media (min-width: 640px) { .pill--sm { font-size: 14px; } }
+.pill--solid { background: var(--lime); color: var(--bg); border-color: var(--lime); font-weight: 500; }
+
+.glass-card { position: relative; border-radius: var(--radius-card); overflow: hidden; background-image: var(--grad-lime-card); }
+.glass-card::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; padding: 3px;
+  background: linear-gradient(135deg, rgba(255,255,255,.7) 0%, rgba(255,255,255,.35) 40%, rgba(255,255,255,.1) 100%);
+  mix-blend-mode: overlay;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+}
+
+.section { padding: 48px 0; }
+@media (min-width: 1024px) { .section { padding: 72px 0; } }
+.section__head { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+.section__head h2 { color: var(--white); font-size: clamp(1.6rem, 3.4vw, 2.5rem); font-weight: 700; letter-spacing: -.015em; line-height: 1.1; }
+.section__head p { color: rgba(255,255,255,.75); max-width: 40rem; }
+
+/* photos with graceful fallback */
+.photo { position: relative; overflow: hidden; aspect-ratio: var(--ar, 1 / 1); background: linear-gradient(160deg, #262626, #121212); }
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.photo .ph { position: absolute; inset: 0; display: grid; place-items: center; font-size: 2rem; font-weight: 800; color: rgba(255,255,255,.35); }
+
+/* ==========================================================
+   OVERVIEW: HERO
+   ========================================================== */
+.hero { padding-top: 100px; }
+@media (min-width: 1024px) { .hero { padding-top: 120px; } }
+.hero__body { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: 32px 0 24px; }
+@media (min-width: 1024px) { .hero__body { padding: 48px 0 32px; } }
+.hero h1 { color: var(--white); font-weight: 700; letter-spacing: -.02em; line-height: 1.05; font-size: clamp(2.5rem, 7vw, 5rem); max-width: 14ch; }
+.hero__lead { max-width: 44rem; color: rgba(255,255,255,.8); font-size: 16px; line-height: 1.65; }
+@media (min-width: 768px) { .hero__lead { font-size: 18px; } }
+
+.sept { width: 100%; max-width: 940px; margin: 8px auto 0; padding: 24px; display: grid; gap: 20px; text-align: center; justify-items: center; }
+@media (min-width: 768px) { .sept { padding: 36px 40px; } }
+.sept__body { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.sept h2 { color: var(--white); font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; line-height: 1.15; letter-spacing: -.01em; }
+.sept__rules { color: var(--white); font-size: clamp(1.05rem, 2.2vw, 1.25rem); line-height: 1.5; max-width: 52ch; }
+.sept__intro { color: rgba(255,255,255,.82); max-width: 60ch; }
+.sept__q { position: relative; padding-top: 18px; color: var(--white); font-size: clamp(1.05rem, 2.2vw, 1.3rem); font-weight: 500; line-height: 1.45; max-width: 52ch; }
+.sept__q::before { content: ""; position: absolute; top: 0; left: 50%; width: 48px; height: 3px; margin-left: -24px; background: var(--lime); border-radius: 2px; }
+.sept .btn { justify-self: center; }
+.sept .pill { align-self: center; }
+
+/* ==========================================================
+   OVERVIEW: STATS
+   ========================================================== */
+.stats { padding: 8px 0 8px; }
+.stats__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+@media (min-width: 768px) { .stats__grid { gap: 16px; } }
+.stats__grid li { display: flex; }
+.stat-tile {
+  flex: 1;
+  display: flex; flex-direction: column; gap: 8px; padding: 14px; border-radius: 20px; text-decoration: none;
+  border: 1px solid var(--line); background: rgba(255,255,255,.02); transition: border-color .2s, background .2s;
+}
+a.stat-tile:hover { border-color: var(--lime-border); background: rgba(166,255,0,.05); }
+@media (min-width: 640px) { .stat-tile { padding: 20px; } }
+.stat-tile__num { color: var(--lime); font-weight: 700; font-size: clamp(1.9rem, 4.2vw, 2.9rem); line-height: 1; letter-spacing: -.02em; }
+.stat-tile__label { font-size: 14px; color: rgba(255,255,255,.75); line-height: 1.4; }
+
+/* ==========================================================
+   CASE CARDS (same structure as /cases)
+   ========================================================== */
+.grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 768px) { .grid { gap: 32px; } }
+@media (min-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+.grid .span-2 { grid-column: 1 / -1; }
+
+.case { position: relative; padding: 16px; height: 100%; }
+@media (min-width: 768px) { .case { padding: 24px; } }
+.case__row { display: flex; align-items: center; gap: 12px; height: 100%; }
+@media (min-width: 640px) { .case__row { gap: 16px; } }
+@media (min-width: 768px) { .case__row { gap: 24px; } }
+
+.thumb { position: relative; flex: none; overflow: hidden; border-radius: var(--radius-img); width: 100px; background: #1a1a1a; }
+@media (min-width: 640px) { .thumb { width: 140px; } }
+@media (min-width: 768px) { .thumb { width: 180px; } }
+@media (min-width: 1024px) { .thumb { width: 200px; } }
+.thumb img { transition: transform .3s ease-out; }
+.case:hover .thumb img { transform: scale(1.04); }
+.mosaic { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px; }
+.mosaic .photo { width: calc((100% - 6px) / 3); border-radius: 6px; }
+.mosaic .ph { font-size: .9rem; }
+
+.case__info { display: flex; flex-direction: column; flex: 1; gap: 8px; min-width: 0; }
+@media (min-width: 640px) { .case__info { gap: 16px; } }
+@media (min-width: 768px) { .case__info { gap: 20px; } }
+.case__head { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.case h3 { color: var(--white); font-size: 19px; font-weight: 700; line-height: 1.15; }
+@media (min-width: 768px) { .case h3 { font-size: 24px; } }
+.case__list { margin: 2px 0 0 16px; list-style: disc; font-size: 12px; line-height: 1.65; color: var(--white); }
+@media (min-width: 640px) { .case__list { margin-left: 20px; font-size: 14px; } }
+@media (min-width: 768px) { .case__list { font-size: 16px; } }
+.case__btn { align-self: flex-start; }
+.case__btn::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: var(--radius-card); }
+.case:hover .case__btn { transform: scale(1.03); filter: brightness(1.1); }
+
+/* teaser cards */
+.teaser .thumb {
+  aspect-ratio: 1 / 1; display: grid; place-items: center; background: rgba(10,10,10,.55);
+  border: 1.5px dashed var(--lime-border);
+}
+.teaser .thumb span { color: var(--lime); font-weight: 800; font-size: clamp(1.4rem, 4vw, 2.4rem); letter-spacing: -.01em; }
+.teaser--next { outline: 1px solid var(--lime); outline-offset: -1px; }
+.teaser .case__btn::after { display: none; }
+.teaser--year .case__row { align-items: center; }
+
+/* ==========================================================
+   CTA
+   ========================================================== */
+.cta { text-align: center; }
+.cta__box { padding: 40px 20px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+@media (min-width: 768px) { .cta__box { padding: 64px 32px; } }
+.cta h2 { color: var(--white); font-size: clamp(1.6rem, 3.6vw, 2.75rem); font-weight: 700; line-height: 1.1; letter-spacing: -.015em; max-width: 22ch; }
+.cta p { color: rgba(255,255,255,.82); max-width: 40rem; }
+
+/* ==========================================================
+   CASE PAGE
+   ========================================================== */
+.case-hero { display: grid; gap: 28px; padding: 32px 0 16px; }
+@media (min-width: 900px) { .case-hero { grid-template-columns: 1fr 340px; gap: 48px; align-items: start; padding: 48px 0 24px; } }
+.case-hero__top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 20px; }
+.case-hero h1 { color: var(--white); font-weight: 700; letter-spacing: -.02em; line-height: 1.05; font-size: clamp(2rem, 5vw, 3.5rem); }
+.case-hero__client { margin-top: 10px; color: var(--muted); font-size: 16px; }
+.case-hero__why { margin-top: 24px; font-size: 18px; line-height: 1.6; color: rgba(255,255,255,.88); max-width: 62ch; }
+.case-hero__why strong { color: var(--white); }
+
+.winner-card { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+.winner-card__label { font-size: 14px; color: var(--white); font-weight: 500; }
+.winner-card .solo { border-radius: var(--radius-img); }
+.winner-card .solo .photo { border-radius: var(--radius-img); }
+.winner-card__name { color: var(--white); font-size: 22px; font-weight: 700; line-height: 1.1; }
+.winner-card__sub { color: var(--muted); font-size: 14px; margin-top: 2px; }
+.team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.team-grid .member { display: flex; flex-direction: column; gap: 8px; }
+.team-grid .member .photo { border-radius: 12px; }
+.team-grid .member:first-child { grid-column: 1 / -1; }
+.member__name { color: var(--white); font-weight: 700; font-size: 16px; line-height: 1.1; }
+.member__sub { color: var(--lime); font-size: 13px; }
+
+.case-body { display: grid; gap: 16px; padding-top: 16px; padding-bottom: 24px; }
+.case-link { display: flex; }
+.row-2 { display: grid; gap: 16px; }
+@media (min-width: 900px) { .row-2 { grid-template-columns: 1fr 1fr; } }
+
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+@media (min-width: 768px) { .panel { padding: 32px; } }
+.panel h2 { color: var(--lime); font-size: 20px; font-weight: 700; letter-spacing: -.005em; }
+.panel p { color: rgba(255,255,255,.85); line-height: 1.65; max-width: 62ch; }
+.panel__note { font-size: 14px; color: var(--muted); }
+
+.quote { border-left: 3px solid var(--lime); padding: 2px 0 2px 16px; }
+.quote blockquote { color: var(--white); font-size: 17px; line-height: 1.5; font-weight: 500; }
+.quote figcaption { margin-top: 8px; font-size: 13px; color: var(--muted); }
+
+/* infographic: stat tiles */
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.tile { background: var(--panel-2); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; }
+.tile__val { color: var(--lime); font-weight: 800; font-size: clamp(1.7rem, 3.6vw, 2.5rem); line-height: 1; letter-spacing: -.02em; }
+.tile__val--white { color: var(--white); }
+.tile__label { font-size: 13px; color: rgba(255,255,255,.72); line-height: 1.35; }
+
+/* infographic: big number */
+.big { display: flex; flex-direction: column; justify-content: center; gap: 8px; height: 100%; }
+.big__val { color: var(--lime); font-weight: 800; font-size: clamp(3.5rem, 9vw, 6rem); line-height: .95; letter-spacing: -.04em; }
+.big__label { color: var(--white); font-size: 20px; font-weight: 700; }
+.big__note { color: var(--muted); font-size: 15px; }
+
+/* infographic: bars */
+.bars { display: flex; flex-direction: column; gap: 18px; }
+.bar__meta { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+.bar__label { color: rgba(255,255,255,.9); font-size: 15px; }
+.bar__val { color: var(--white); font-weight: 700; font-size: 18px; white-space: nowrap; }
+.track { position: relative; height: 26px; border-radius: 999px; background: #222; }
+.fill { height: 100%; width: var(--w); border-radius: 999px; background: rgba(255,255,255,.35); }
+.fill--win { background: linear-gradient(90deg, rgba(166,255,0,.55), var(--lime)); }
+.marker { position: absolute; top: -5px; bottom: -5px; left: var(--t); border-left: 2px dashed #fff; }
+.bar__note { margin-top: 6px; font-size: 13px; color: var(--muted); }
+.legend { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.legend i { display: inline-block; width: 0; height: 14px; border-left: 2px dashed #fff; }
+
+/* infographic: steps */
+.steps { display: grid; gap: 8px; }
+@media (min-width: 700px) { .steps { grid-template-columns: repeat(var(--n), 1fr); gap: 0; } }
+.step { position: relative; display: flex; flex-direction: row; align-items: center; gap: 16px; padding: 4px 0; }
+@media (min-width: 700px) { .step { flex-direction: column; text-align: center; padding: 0 10px; } }
+.step__mark { flex: none; width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center; background: var(--lime); color: #0A0A0A; font-weight: 800; font-size: 15px; z-index: 1; }
+.step__text { display: flex; flex-direction: column; gap: 2px; }
+.step__label { color: var(--white); font-weight: 700; font-size: 16px; }
+.step__sub { color: var(--muted); font-size: 14px; max-width: 24ch; }
+.step:not(:last-child)::after { content: ""; position: absolute; background: var(--lime-border); }
+@media (max-width: 699px) { .step:not(:last-child)::after { left: 29px; top: 64px; bottom: -8px; width: 2px; } }
+@media (min-width: 700px) { .step:not(:last-child)::after { top: 30px; left: calc(50% + 40px); right: calc(-50% + 40px); height: 2px; } }
+
+/* infographic: ring */
+.ring { display: flex; align-items: center; gap: 20px; }
+.ring svg { width: 120px; height: 120px; flex: none; transform: rotate(-90deg); }
+.ring__bg { fill: none; stroke: #262626; stroke-width: 12; }
+.ring__fg { fill: none; stroke: var(--lime); stroke-width: 12; stroke-linecap: round; }
+.ring__center { position: relative; width: 120px; height: 120px; flex: none; }
+.ring__center svg { position: absolute; inset: 0; }
+.ring__pct { position: absolute; inset: 0; display: grid; place-items: center; color: var(--white); font-weight: 800; font-size: 26px; }
+.ring__text { color: rgba(255,255,255,.85); font-size: 15px; line-height: 1.45; }
+.ring__text strong { color: var(--white); }
+
+/* pillars */
+.pillars { display: grid; gap: 12px; }
+@media (min-width: 700px) { .pillars--2 { grid-template-columns: 1fr 1fr; } .pillars--3 { grid-template-columns: repeat(3, 1fr); } }
+.pillar { background: var(--panel-2); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+.pillar h3 { color: var(--lime); font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+.pillar p { font-size: 15px; color: rgba(255,255,255,.8); line-height: 1.55; }
+
+/* chips */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 8px 14px; border-radius: 999px; background: var(--panel-2); border: 1px solid var(--line); color: var(--white); font-size: 14px; }
+
+/* spotlight */
+.spot { display: grid; gap: 16px; align-items: center; }
+@media (min-width: 600px) { .spot { grid-template-columns: 140px 1fr; gap: 24px; } }
+.spot .photo { width: 140px; border-radius: 16px; }
+.spot h3 { color: var(--white); font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+
+/* takeaway */
+.takeaway { border-left: 4px solid var(--lime); border-radius: 4px 20px 20px 4px; padding: 22px 24px; background: linear-gradient(90deg, rgba(166,255,0,.10), rgba(166,255,0,.02)); }
+.takeaway h2 { color: var(--lime); font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.takeaway li { position: relative; padding-left: 26px; color: rgba(255,255,255,.9); line-height: 1.55; }
+.takeaway li + li { margin-top: 10px; }
+.takeaway li::before { content: ""; position: absolute; left: 0; top: .5em; width: 12px; height: 2px; background: var(--lime); }
+.takeaway strong { color: var(--white); }
+
+/* gallery + video */
+.gallery { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 8px; margin: 0 -4px; padding-left: 4px; }
+.shot { flex: none; scroll-snap-align: start; height: clamp(220px, 34vw, 380px); min-width: 150px; padding: 0; border: 1px solid var(--line); border-radius: var(--radius-img); overflow: hidden; background: #1a1a1a; }
+.shot img { height: 100%; width: auto; max-width: none; }
+.shot:hover { border-color: var(--lime-border); }
+.video { position: relative; width: 100%; max-width: var(--vw, 100%); aspect-ratio: var(--ratio, 16 / 9); border-radius: 16px; overflow: hidden; background: #000; border: 1px solid var(--line); }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.link-out { color: var(--white); font-size: 14px; }
+.link-out:hover { color: var(--lime); }
+
+/* prev / next */
+.case-nav { display: grid; gap: 12px; padding: 8px 0 8px; }
+@media (min-width: 700px) { .case-nav { grid-template-columns: 1fr auto 1fr; align-items: center; } .case-nav .next { justify-self: end; } }
+.case-nav a { text-decoration: none; }
+.navlink { display: flex; flex-direction: column; gap: 2px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 18px; transition: border-color .2s; min-width: 0; }
+.navlink:hover { border-color: var(--lime-border); }
+.navlink small { color: var(--muted); font-size: 13px; }
+.navlink span { color: var(--white); font-weight: 700; font-size: 16px; }
+.navlink.next { text-align: right; }
+
+/* lightbox */
+dialog.lightbox { width: min(1100px, calc(100% - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 1px solid var(--line); border-radius: 20px; background: #0d0d0d; overflow: hidden; }
+dialog.lightbox::backdrop { background: rgba(0,0,0,.8); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.lightbox__img { display: block; margin: 0 auto; max-width: 100%; max-height: calc(100dvh - 24px); object-fit: contain; }
+.lightbox__close { position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(10,10,10,.75); border: 1px solid rgba(255,255,255,.3); }
+
+/* ==========================================================
+   FOOTER (links intentionally not clickable)
+   ========================================================== */
+.footer { margin-top: 48px; border-top: 1px solid var(--white); background: var(--bg); }
+.footer__inner { display: flex; flex-direction: column; gap: 24px; padding: 32px 24px; font-size: 14px; }
+@media (min-width: 768px) { .footer__inner { flex-direction: row; justify-content: space-between; align-items: center; padding: 32px; } }
+.footer__links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.footer__links span, .socials span { cursor: default; }
+.socials { display: flex; gap: 12px; }
+.socials svg { width: 24px; height: 24px; fill: var(--lime); }
+
+/* ==========================================================
+   MOTION
+   ========================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1, .hero__lead { animation: rise .6s both; }
+  .hero__lead { animation-delay: .1s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+</head>
+
+<body>
+
+<!-- =====================  HEADER  ===================== -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <button class="glass-pill" type="button" aria-label="Open menu">
+      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <line x1="3" y1="5.5" x2="17" y2="5.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="3" y1="10" x2="17" y2="10" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="3" y1="14.5" x2="17" y2="14.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span class="label-desktop">Menu</span>
+    </button>
+    <a class="logo" href="/" aria-label="Sprints &amp; Sneakers">Sprints &amp;<br>Sneakers</a>
+    <button class="glass-pill" type="button" aria-label="Choose language">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" stroke="white" stroke-width="1.5"/>
+        <path d="M3 12H21" stroke="white" stroke-width="1.5"/>
+        <path d="M12 3C12 3 16 7 16 12C16 17 12 21 12 21" stroke="white" stroke-width="1.5"/>
+        <path d="M12 3C12 3 8 7 8 12C8 17 12 21 12 21" stroke="white" stroke-width="1.5"/>
+      </svg>
+      <span><span class="label-desktop">English</span><span class="label-mobile">EN</span></span>
+    </button>
+  </div>
+</header>
+
+<!-- overview and case pages are rendered here -->
+<main id="app"></main>
+
+<!-- =====================  FOOTER (not clickable)  ===================== -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div>© 2026 Sprints &amp; Sneakers. All rights reserved.</div>
+    <div class="footer__links">
+      <span>Privacy Policy</span>
+      <span>Terms &amp; Conditions</span>
+      <span>Cookie Declaration</span>
+    </div>
+    <div class="socials" aria-hidden="true">
+      <span><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
+      <span><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span>
+    </div>
+  </div>
+</footer>
+
+<!-- image lightbox -->
+<dialog class="lightbox" id="lightbox" aria-label="Enlarged image">
+  <button class="lightbox__close" type="button" id="lb-close" aria-label="Close image">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 4L16 16M16 4L4 16" stroke="white" stroke-width="1.75" stroke-linecap="round"/></svg>
+  </button>
+  <img class="lightbox__img" id="lb-img" alt="">
+</dialog>
+
+<script>
+/* ==========================================================
+   CONFIG
+   ========================================================== */
+const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfA6aMy1XOE1CsuVO1i3BKXtutkIxyMh-YqBcfJhhPVPvSxFA/viewform?usp=header";
+
+/* All images come from the shared Google Drive folders.
+   For production: download the files, host them on the S&S site and
+   change this ONE function to return your own URL (for example `/uploads/awards/${id}.webp`). */
+const img = (id, w = 900) => `https://drive.google.com/thumbnail?id=${id}&sz=w${w}`;
+const video = id => `https://drive.google.com/file/d/${id}/preview`;
+
+/* ==========================================================
+   PEOPLE (photos from the "Photo's winners" folder)
+   ========================================================== */
+const PEOPLE = {
+  nander:  { name: "Nander",  photo: "1DUpHjKcxQVl-f92SD74IKIX7L94GCeAJ" },
+  nia:     { name: "Nia",     photo: "1_cvu-ESKSRx_s-2805MqMAZ1x5m75y29" },
+  lisa:    { name: "Lisa",    photo: "1w2rTuRbx88hIEpR89ZK_Ks2Xm68B-NpS" },
+  mick:    { name: "Mick",    photo: "1KssImR1Y-FAih4hxpoSxUNMgjuqBGZCO" },
+  sigi:    { name: "Sigi",    photo: "17Tfz3pxpQacDKrQRpXsserApvCx7QucG" },
+  miguel:  { name: "Miguel",  photo: "1P-U33fcTWmxHZM2Q-t2AwQ5sANgdHiEB" },
+  sheriff: { name: "Sharif",  nick: "The Sheriff", photo: "1Td-id7C1INN5ix6rbpZZGy3I_eFN7jzV" },
+  guus:    { name: "Guus",    photo: "1jP8h-ri_4aTN8ZYSONmiGuS1hO019T0r" },
+  georges: { name: "Georges", photo: "1ZA-I1AJEMWr7QM0ImtlMCVHsWkDRFbFH" },
+  jorg:    { name: "Jorg",    photo: "15PybcpAISC5JoeJlNMZun3mN-_rKfmwd" }
+};
+
+/* ==========================================================
+   WINNERS (source: awards doc + winner slides + Drive folders)
+   Section types: text, stats, bars, steps, ring, big, pillars, chips,
+   spotlight, gallery, video, link. Put two sections in an array to show them side by side.
+   ========================================================== */
+const WINNERS = [
+  {
+    slug: "january", date: "January 2026",
+    title: "Talent hacking Appreo: 2 key hires in record time",
+    client: "Appreo", people: ["nander"],
+    metric: "2 key hires for €610 ad spend",
+    why: "Two hard-to-fill roles, an international expansion and a lean budget. Nander turned recruitment into a performance funnel and delivered two hires in under 20 days, at 90% below the industry average cost per hire.",
+    sections: [
+      [
+        { type: "text", title: "The challenge",
+          body: ["Filling a niche-tech role (Functional Tester) and launching an international expansion (Business Developer for Belgium) on a lean budget."],
+          quote: { text: "It looks like we're going to make it work with the Belgian Manager.", by: "Update, January 28" } },
+        { type: "stats", title: "Combined results", items: [
+          { v: "€610", l: "Total ad spend" },
+          { v: "< 20", l: "Days time-to-hire" },
+          { v: "36", l: "Qualified leads" },
+          { v: "2", l: "Successful hires" } ] }
+      ],
+      [
+        { type: "steps", title: "Speed: the < 3 week funnel",
+          note: "Applied on Monday, interviewed on Tuesday, hired on Wednesday.",
+          items: [ { m: "Mon", l: "Applied" }, { m: "Tue", l: "Interview" }, { m: "Wed", l: "Hired" } ] },
+        { type: "big", v: "€305", l: "Cost per hire", n: "90% below industry average" }
+      ],
+      { type: "gallery", title: "The vacancy ads", ids: [
+        "1JUMMDFxatN9dONb8iBhG5m7ou8VrpLqd", "1d9OCaExyDoodOcf5diOObnvzsKq_E3bx", "1AOy3Z2JsLZWXR3iaLU2yGvAsa5bWjlA-",
+        "14RH3tQtrAEbCS-DYVZCQDh9gJ2eq5xk4", "1A2YyRDsWygGk-F3AuumQdNqyCM6L1Pgi" ] }
+    ]
+  },
+  {
+    slug: "february", date: "February 2026",
+    title: "Personal Brand Rocket",
+    client: "Internal, Sprints & Sneakers", people: ["nia"],
+    metric: "Voted best by the team",
+    why: "The team voted Nia the winner for turning our personal branding target into something you can see and touch: a giant rocket of sticky notes on the office wall that everyone helps build.",
+    sections: [
+      { type: "text", title: "The idea",
+        body: ["Nia built a giant rocket out of sticky notes at the office. It reminds all of us of the personal branding target we are working towards together, and it does so in a fun and interactive way."] },
+      { type: "pillars", cols: 3, title: "Why it works", items: [
+        { t: "Visible", p: "The target hangs on the office wall where everyone sees it every day." },
+        { t: "Interactive", p: "Everyone can take part, so the rocket is built by the whole team." },
+        { t: "Motivating", p: "A playful reminder that keeps us moving towards the goal together." } ] },
+      { type: "gallery", title: "The rocket", ids: ["1q17xEgLTTbIYwRa9wZBhqFU2FoL9z2WF"] }
+    ]
+  },
+  {
+    slug: "march", date: "March 2026",
+    title: "Oliehoorn x Karwei: “Wij houden van sauzen”",
+    client: "Oliehoorn, Karwei", people: ["lisa"],
+    metric: "470K organic views",
+    why: "An April Fools' stunt built for sharing. Lisa took it from the first creative spark to a full distribution plan, and it earned 470K organic views and coverage in the trade press.",
+    sections: [
+      [
+        { type: "text", title: "The brief",
+          body: [
+            "Last year's April Fools' joke, Eau de Oliehoorn, was a big success. This year Oliehoorn wanted to play April 1st again, this time together with a brand far outside its own lane.",
+            "After a brainstorm we landed on a sauce paint line with a DIY retailer. In the end it became Karwei. The goals: get picked up by the media, get people talking about the joke and, above all, views." ],
+          quote: { text: "From lightbulb moment to final execution.", by: "On Lisa's end-to-end ownership" } },
+        { type: "stats", title: "The result", items: [
+          { v: "470K", l: "Organic views" },
+          { v: "3", l: "Placements: Snackspert collab post (IG), Karwei collab post (IG + FB) and an IG story" },
+          { v: "Press", l: "Picked up by trade media, including Adformatie" } ] }
+      ],
+      { type: "pillars", cols: 2, title: "Why it won", items: [
+        { t: "End-to-end ownership", p: "Lisa built the whole concept from the ground up and turned the first creative spark into a fully fleshed-out distribution plan." },
+        { t: "Growth-hacker creativity", p: "Designed for more than a quick laugh: engineered for virality, with shareability and audience engagement built in from the start." },
+        { t: "Brand authenticity", p: "It captured Oliehoorn's distinctly Dutch, no-nonsense tone and cut through the noise of standard corporate April Fools' jokes." },
+        { t: "Performance-driven", p: "It bridged the gap between a fun PR stunt and performance marketing, and proved the concept's worth with hard numbers." } ] },
+      { type: "gallery", title: "The campaign", ids: [
+        "1sTJpuQhjlZcGGjF9fpD3YbIDQXPloVAO", "1k2UsSFZwHcTZVgihRxFhWLAkFECnLVWE", "1rZHIoovP_bATZdCJBdmXypUTg-UI8ul1",
+        "13K6mtRc7093wKRUjTQNZKg7DJAij0H6O", "1g6FC2s6hfq02NOa1EcoIPVzmbc4FB3-F", "1WMTCDco8xdDRX0tx0mFK1AyeLJ-wZQG3",
+        "1NtGsDHlS9x67EwXM5msZZyuQW03z9SXS" ] }
+    ]
+  },
+  {
+    slug: "april", date: "April 2026",
+    title: "Tiny Library: hooks that make renting feel obvious",
+    client: "Tiny Library", people: ["mick"],
+    metric: "14 purchases at €24 CPA",
+    why: "This wasn't just a good creative, it performed across the entire funnel. A strong hook and a clear value proposition drove both high engagement and conversions, and beat the target CPA of €35.",
+    sections: [
+      [
+        { type: "text", title: "The goal",
+          body: [
+            "Find recognisable, confronting hooks that trigger the emotions around buying expensive baby stuff, and motivate people to start renting instead.",
+            "The test showed we are running on a Dutch audience: “why pay so much for stuff you need for such a short time” resonated the most." ] },
+        { type: "bars", title: "Cost per acquisition", unit: "€", target: { v: 35, l: "Target CPA €35" }, rows: [
+          { l: "Result this month (14 purchases)", v: 24, d: "€24", tone: "win" },
+          { l: "Hook: afraid to buy something your child will barely use (2 purchases)", v: 20, d: "€20", tone: "win" } ] }
+      ],
+      { type: "stats", title: "Why this ad wins", items: [
+        { v: "€0.89", l: "Lowest cost per landing page view" },
+        { v: "276", l: "Highest volume of landing page views" },
+        { v: "51", l: "Add to carts" },
+        { v: "10", l: "Subscriptions, the highest of all creatives" },
+        { v: "3.16%", l: "CTR", w: true },
+        { v: "3.62%", l: "CVR", w: true } ] },
+      { type: "video", title: "The ad", id: "1GQezvwREDA-WIXBfQ9mzBvp2CFoINBrF", ratio: "9 / 16", maxw: "340px" }
+    ],
+    takeaways: [
+      "This is what happens when creative, message and audience are perfectly aligned.",
+      "Not the flashiest ad, but the one that drives real business results."
+    ]
+  },
+  {
+    slug: "may", date: "May 2026",
+    title: "The new Sprints & Sneakers website",
+    client: "Sprints & Sneakers", people: ["sigi"],
+    metric: "New brand, built solo",
+    why: "A whole new website is no small thing, and Sigi got it live on his own. It is in our new branding and has a look and feel that fits who we are and where we are going.",
+    sections: [
+      { type: "steps", title: "From outgrown to live", items: [
+        { m: "1", l: "Outgrown", s: "We had outgrown the old website for a while." },
+        { m: "2", l: "New branding", s: "A look and feel that fits who we are and where we are going." },
+        { m: "3", l: "Live", s: "Built and launched by one person, with a lot of time and energy." } ] },
+      { type: "text", title: "Why it won",
+        body: ["The project was intensive. Sigi put a huge amount of time and energy into it and realised the entire website by himself, which is impressive."] },
+      { type: "gallery", title: "The website", ids: ["1LkkSRwGzyk2Bs9pE5rfqWLN7LRiOC9gt"] },
+      { type: "link", label: "Visit sprintsandsneakers.com", href: "https://www.sprintsandsneakers.com/" }
+    ]
+  },
+  {
+    slug: "june", date: "June 2026",
+    title: "Ego vs. Practical: a lead magnet split test",
+    client: "Impact Negotiation Group", people: ["miguel"],
+    metric: "CPL €44 vs €70 target",
+    why: "A split test between two lead magnets, built in minutes with Claude. Practical won by a landslide, and the leads were not just cheap but incredible.",
+    sections: [
+      [
+        { type: "text", title: "The test",
+          body: [
+            "Version A was a negotiation quiz to benchmark your skills (ego). Version B was a downloadable playbook to start improving right away (practical).",
+            "Same audience, same €70 CPL target, which is what we achieved the month before. Both lead magnets were created quickly with Claude." ] },
+        { type: "bars", title: "Cost per lead", unit: "€", target: { v: 70, l: "Target CPL €70" }, rows: [
+          { l: "Version B: playbook", v: 43, d: "€43", tone: "win", n: "39% under target" },
+          { l: "Version A: quiz", v: 77, d: "€77", tone: "neutral", n: "Missed the target" } ] }
+      ],
+      [
+        { type: "big", v: "-37%", l: "Final CPL of €44", n: "versus the €70 target" },
+        { type: "chips", title: "Not just cheap, incredible leads", items: ["Samsung", "Huawei", "Douglas", "Zalando"] }
+      ],
+      { type: "gallery", title: "The ads", ids: [
+        "1vIgfTCH2rdTP3bNWw1Rh5PxmtbCfF79y", "1vE3nwMLEFkmqj_3KMSf86LC9-KxLC1w6", "1Z9SRfYzXnEtEy1Lk1OikfXt6FsyY0DEM" ] }
+    ],
+    takeaways: [
+      "Practical value beats ego: people convert on what helps them today, not on flattering their skills.",
+      "Building both lead magnets fast with Claude made a clean, cheap split test possible in the first place."
+    ]
+  },
+  {
+    slug: "july", date: "July 2026",
+    title: "AetherGraph: making AI transformation visible",
+    client: "KPMG", people: ["sheriff"],
+    metric: "Helped close KPMG for the next quarter",
+    why: "Sharif built an entire knowledge graph to create a visual, long-term vision for KPMG's AI transformation. Structured as a living 3D agent environment, it bridges complex infrastructure with tangible goals, and it helped close KPMG for the next quarter.",
+    sections: [
+      { type: "stats", title: "The architecture and the impact", items: [
+        { v: "3D", l: "Living UI: an abstract AI ecosystem turned into an interactive visual space" },
+        { v: "Agent", l: "Structure", w: true },
+        { v: "Yes", l: "Renewal secured for the next quarter" },
+        { v: "High", l: "Value, through strategic technological alignment", w: true } ] },
+      { type: "gallery", title: "AetherGraph", ids: ["1T6DZBU5ou9GM0fBTKnYM05qWIbKacOeS", "1cLh199hMNyJZft_id7oIcdHuNQPu4DyX"] }
+    ],
+    takeaways: [
+      "Visionary presentation wins: visualising AI as a living structure makes abstract transformations concrete and actionable.",
+      "Pushing creative boundaries in our deliverables directly drives successful renewals and deepens partner trust."
+    ]
+  },
+  {
+    slug: "august", date: "August 2026",
+    title: "De Zomer van Recharge",
+    client: "Shell Recharge", people: ["guus", "lisa", "georges", "jorg", "sheriff"], special: "guus",
+    metric: "327 Hidden Gems discovered",
+    why: "It shows what happens when an agency stops thinking in separate disciplines. Creative, technology, partnerships, media and performance came together in one working consumer experience, built in two weeks.",
+    sections: [
+      [
+        { type: "text", title: "From charging promo to summer experience",
+          body: [
+            "Instead of only saying that you can charge for less during the campaign, we built an interactive experience. Visitors discover summer routes and Hidden Gems, view routes from partners and creators, and play the Beachball Game along the way.",
+            "One recognisable concept, translated to paid media, PR, creators, partner channels and the platform itself." ],
+          quote: { text: "It really shows your expertise is managing this / technology / creatives and different fields of marketing. A lot of exposure for you guys and expect more work coming your way.", by: "Shell client team" } },
+        { type: "chips", title: "Not a landing page, a digital product", items: [
+          "Dynamic map with Hidden Gems, routes and Shell Recharge charging locations",
+          "Integration with Shell's public EV charging data",
+          "Routes curated by partners and creators",
+          "Interactive Beachball Game",
+          "Prize allocation and claim flow",
+          "GA4 and Meta tracking across the whole journey",
+          "Shareable routes and content" ] }
+      ],
+      [
+        { type: "bars", title: "Visitors actually take part", unit: "", rows: [
+          { l: "Unique visitors", v: 160, d: "160", tone: "neutral" },
+          { l: "Beachball Game interactions", v: 98, d: "98", tone: "win", n: "More than 60% of visitors play the game" },
+          { l: "Prizes claimed", v: 23, d: "23", tone: "win" } ] },
+        { type: "big", v: "327", l: "Hidden Gems discovered", n: "On average more than 2 discovered spots per visitor. The next opportunity is scale: paid media, creator content and partner distribution bring more people in." }
+      ],
+      { type: "spotlight", person: "guus", title: "Special mention: Guus",
+        text: "In his very first month at Sprints & Sneakers, without prior knowledge of Shell Recharge, Guus took extreme ownership of the build. He turned ideas about map interaction, routes, gamification, prizes, tracking and partner content into a working platform in just two weeks, while the scope kept moving." },
+      { type: "video", title: "Watch the video", id: "173hnmljvxgEO6s8oTzrEFxVU9_tg5Cp5", ratio: "16 / 9" },
+      { type: "link", label: "Visit dezomervanrecharge.nl", href: "https://dezomervanrecharge.nl/" }
+    ],
+    takeaways: [
+      "Breaking silos wins: merging technology, creative, partnerships and performance creates the ultimate consumer experience.",
+      "Exceptional ownership: turning a shifting scope into a fully working product under extreme time pressure proves our agility."
+    ]
+  }
+];
+
+/* Upcoming awards (teasers) */
+const UPCOMING = [
+  { key: "sep", abbr: "SEP", title: "September Creative Award", lines: ["Next up", "Submit your work now"], next: true },
+  { key: "oct", abbr: "OCT", title: "October Creative Award", lines: ["Coming soon"] },
+  { key: "nov", abbr: "NOV", title: "November Creative Award", lines: ["Coming soon"] },
+  { key: "dec", abbr: "DEC", title: "December Creative Award", lines: ["Coming soon"] }
+];
+
+/* ==========================================================
+   HELPERS
+   ========================================================== */
+const $ = (s, el = document) => el.querySelector(s);
+const esc = (v = "") => String(v).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const app = $("#app");
+const bySlug = Object.fromEntries(WINNERS.map(w => [w.slug, w]));
+const ARROW_L = `<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3M3 8L7.5 3.5M3 8L7.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const CHEV = `<svg class="chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="#A6FF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const HOME = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9L12 2L21 9V20C21 20.53 20.79 21.04 20.41 21.41C20.04 21.79 19.53 22 19 22H5C4.47 22 3.96 21.79 3.59 21.41C3.21 21.04 3 20.53 3 20V9Z" stroke="#A6FF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 22V12H15V22" stroke="#A6FF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+const photo = (p, w = 600) =>
+  `<div class="photo"><span class="ph" aria-hidden="true">${esc(p.name[0])}</span><img src="${img(p.photo, w)}" alt="${esc(p.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>`;
+
+const names = keys => keys.map(k => PEOPLE[k].name).join(", ");
+
+function breadcrumb(items) {
+  return `<nav class="breadcrumb" aria-label="Breadcrumb"><ol>
+    <li><a href="/" aria-label="Home">${HOME}</a></li>
+    ${items.map(i => `<li>${CHEV}${i.href ? `<a href="${i.href}">${esc(i.label)}</a>` : `<span aria-current="page">${esc(i.label)}</span>`}</li>`).join("")}
+  </ol></nav>`;
+}
+
+function ctaSection() {
+  return `<section class="section cta" aria-labelledby="cta-title"><div class="container">
+    <div class="glass-card cta__box">
+      <h2 id="cta-title">What's the most creative thing you did this month?</h2>
+      <p>Which creative contribution from this month deserves recognition? Tell us what you made, how you came up with the idea and what improvement or impact your approach delivered. Measurable results are welcome, but not required.</p>
+      <a class="btn btn--lime" href="${FORM_URL}" target="_blank" rel="noopener noreferrer">Submit your work</a>
+    </div>
+  </div></section>`;
+}
+
+/* ==========================================================
+   OVERVIEW
+   ========================================================== */
+function cardThumb(w) {
+  if (w.people.length === 1) return photo(PEOPLE[w.people[0]], 500);
+  return `<div class="mosaic">${w.people.slice(0, 5).map(k => photo(PEOPLE[k], 400)).join("")}</div>`;
+}
+
+function winnerCard(w) {
+  return `<article class="glass-card case" data-card="${w.slug}">
+    <div class="case__row">
+      <div class="thumb">${cardThumb(w)}</div>
+      <div class="case__info">
+        <div class="case__head">
+          <span class="pill pill--sm">${esc(w.date)}</span>
+          <h3>${esc(w.title)}</h3>
+          <ul class="case__list" aria-label="Details of ${esc(w.title)}">
+            <li>${esc(w.metric)}</li>
+            <li>${esc(w.client)}</li>
+            <li>${esc(names(w.people))}</li>
+          </ul>
+        </div>
+        <a class="btn btn--glass btn--sm case__btn" href="#/case/${w.slug}" aria-label="View case: ${esc(w.title)}">View case</a>
+      </div>
+    </div>
+  </article>`;
+}
+
+function teaserCard(t) {
+  return `<article class="glass-card case teaser${t.next ? " teaser--next" : ""}">
+    <div class="case__row">
+      <div class="thumb"><span>${t.abbr}</span></div>
+      <div class="case__info">
+        <div class="case__head">
+          ${t.next ? `<span class="pill pill--sm pill--solid">Next up</span>` : `<span class="pill pill--sm">Coming soon</span>`}
+          <h3>${esc(t.title)}</h3>
+          <ul class="case__list">${t.lines.filter(l => !(t.next && l === "Next up")).map(l => `<li>${esc(l)}</li>`).join("")}</ul>
+        </div>
+        ${t.next
+          ? `<a class="btn btn--lime btn--sm case__btn" href="${FORM_URL}" target="_blank" rel="noopener noreferrer">Submit your work</a>`
+          : ``}
+      </div>
+    </div>
+  </article>`;
+}
+
+function renderOverview() {
+  const peopleCount = new Set(WINNERS.flatMap(w => w.people)).size;
+  const stats = [
+    { v: WINNERS.length, l: "Winning cases so far" },
+    { v: peopleCount, l: "Creatives recognised" },
+    { v: UPCOMING.length, l: "Awards left to win this year" }
+  ];
+  document.title = "Creative Awards 2026 | Sprints & Sneakers";
+
+  app.innerHTML = `
+  <section class="hero" aria-labelledby="hero-title"><div class="container">
+    ${breadcrumb([{ label: "Creative Awards" }])}
+    <div class="hero__body">
+      <h1 id="hero-title" tabindex="-1">Creative Awards 2026</h1>
+      <p class="hero__lead">Every month we crown the coolest thing Sprints &amp; Sneakers made: campaigns, products, experiments and ideas from across the agency. Explore all winning cases of this year and see exactly why each one won.</p>
+      <a class="btn btn--glass" href="#winners" data-scroll="winners">View all winning cases</a>
+
+      <div class="glass-card sept" aria-labelledby="sept-title">
+        <div class="sept__body">
+          <span class="pill">Next up: September</span>
+          <h2 id="sept-title">For September we are changing the rules</h2>
+          <p class="sept__rules">So don't worry about how creative your end result looks. What counts is how creative you were in your process, and the impact that had on your process, results, collaboration and more.</p>
+          <p class="sept__intro">We've noticed it isn't always easy to submit something with results, or something you're not sure counts as “creative”. So we're asking the question differently:</p>
+          <blockquote class="sept__q">How has your creativity this month led to better output than last month? Take us through your thinking, your approach and your key creative choices.</blockquote>
+        </div>
+        <a class="btn btn--lime btn--md" href="${FORM_URL}" target="_blank" rel="noopener noreferrer">Submit your work</a>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="stats" aria-label="The awards in numbers"><div class="container">
+    <ul class="stats__grid">
+      ${stats.map(s => `<li>${s.slug
+        ? `<a class="stat-tile" href="#/case/${s.slug}"><span class="stat-tile__num">${esc(s.v)}</span><span class="stat-tile__label">${esc(s.l)}</span></a>`
+        : `<div class="stat-tile"><span class="stat-tile__num">${esc(s.v)}</span><span class="stat-tile__label">${esc(s.l)}</span></div>`}</li>`).join("")}
+    </ul>
+  </div></section>
+
+  <section class="section" id="winners" aria-labelledby="winners-title"><div class="container">
+    <div class="section__head">
+      <h2 id="winners-title">All winning cases of 2026</h2>
+      <p>One award every month. Open a case to see what was made, why it won and what it delivered.</p>
+    </div>
+    <div class="grid">${WINNERS.map(winnerCard).join("")}</div>
+  </div></section>
+
+  <section class="section" aria-labelledby="upcoming-title"><div class="container">
+    <div class="section__head">
+      <h2 id="upcoming-title">Coming up</h2>
+      <p>The rest of the year is still to be written. Your work could be next.</p>
+    </div>
+    <div class="grid">
+      ${UPCOMING.map(teaserCard).join("")}
+      <article class="glass-card case teaser teaser--year span-2">
+        <div class="case__row">
+          <div class="thumb"><span>2026</span></div>
+          <div class="case__info">
+            <div class="case__head">
+              <span class="pill pill--sm">Coming soon</span>
+              <h3>Case of the Year</h3>
+              <ul class="case__list"><li>The standout creative moment of 2026</li></ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div></section>
+
+  ${ctaSection()}`;
+}
+
+/* ==========================================================
+   CASE PAGE: SECTION RENDERERS
+   ========================================================== */
+const R = {
+  text: s => `<h2>${esc(s.title)}</h2>${s.body.map(p => `<p>${esc(p)}</p>`).join("")}` +
+    (s.quote ? `<figure class="quote"><blockquote>${esc(s.quote.text)}</blockquote><figcaption>${esc(s.quote.by)}</figcaption></figure>` : ""),
+
+  stats: s => `<h2>${esc(s.title)}</h2><div class="tiles">${s.items.map(i =>
+    `<div class="tile"><span class="tile__val${i.w ? " tile__val--white" : ""}">${esc(i.v)}</span><span class="tile__label">${esc(i.l)}</span></div>`).join("")}</div>`,
+
+  big: s => `<div class="big"><span class="big__val">${esc(s.v)}</span><span class="big__label">${esc(s.l)}</span><span class="big__note">${esc(s.n || "")}</span></div>`,
+
+  bars: s => {
+    const max = Math.max(...s.rows.map(r => r.v), s.target ? s.target.v : 0) * 1.08;
+    const pct = v => (v / max * 100).toFixed(1) + "%";
+    return `<h2>${esc(s.title)}</h2><div class="bars">
+      ${s.rows.map(r => `<div class="bar">
+        <div class="bar__meta"><span class="bar__label">${esc(r.l)}</span><span class="bar__val">${esc(r.d)}</span></div>
+        <div class="track" role="img" aria-label="${esc(r.l)}: ${esc(r.d)}">
+          <div class="fill ${r.tone === "win" ? "fill--win" : ""}" style="--w:${pct(r.v)}"></div>
+          ${s.target ? `<span class="marker" style="--t:${pct(s.target.v)}"></span>` : ""}
+        </div>
+        ${r.n ? `<div class="bar__note">${esc(r.n)}</div>` : ""}
+      </div>`).join("")}
+      ${s.target ? `<span class="legend"><i></i>${esc(s.target.l)}</span>` : ""}
+    </div>`;
+  },
+
+  steps: s => `<h2>${esc(s.title)}</h2>
+    <div class="steps" style="--n:${s.items.length}">${s.items.map(i =>
+      `<div class="step"><span class="step__mark">${esc(i.m)}</span><span class="step__text"><span class="step__label">${esc(i.l)}</span>${i.s ? `<span class="step__sub">${esc(i.s)}</span>` : ""}</span></div>`).join("")}</div>
+    ${s.note ? `<p class="panel__note">${esc(s.note)}</p>` : ""}`,
+
+  pillars: s => `<h2>${esc(s.title)}</h2><div class="pillars pillars--${s.cols || 2}">${s.items.map(i =>
+    `<div class="pillar"><h3>${esc(i.t)}</h3><p>${esc(i.p)}</p></div>`).join("")}</div>`,
+
+  chips: s => `<h2>${esc(s.title)}</h2><div class="chips">${s.items.map(i => `<span class="chip">${esc(i)}</span>`).join("")}</div>`,
+
+  spotlight: s => { const p = PEOPLE[s.person]; return `<div class="spot">${photo(p, 500)}<div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div></div>`; },
+
+  gallery: s => `<h2>${esc(s.title)}</h2>
+    <div class="gallery" role="list">${s.ids.map((id, i) =>
+      `<button class="shot" type="button" role="listitem" data-zoom="${id}" aria-label="Enlarge image ${i + 1} of ${s.ids.length}"><img src="${img(id, 700)}" alt="${esc(s.title)} ${i + 1}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></button>`).join("")}</div>
+    <p class="panel__note">Click an image to enlarge it.</p>`,
+
+  video: s => `<h2>${esc(s.title)}</h2>
+    <div class="video" style="--ratio:${s.ratio}; ${s.maxw ? `--vw:${s.maxw}` : ""}"><iframe src="${video(s.id)}" title="${esc(s.title)}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+    <a class="link-out" href="https://drive.google.com/file/d/${s.id}/view" target="_blank" rel="noopener noreferrer">Open the video in a new tab</a>`,
+
+  link: s => `<a class="btn btn--glass btn--md" href="${esc(s.href)}" target="_blank" rel="noopener noreferrer">${esc(s.label)}</a>`
+};
+
+const panel = s => `<div class="panel panel--${s.type}">${R[s.type](s)}</div>`;
+const block = e => Array.isArray(e) ? `<div class="row-2">${e.map(panel).join("")}</div>` : e.type === "link" ? `<div class="case-link">${R.link(e)}</div>` : panel(e);
+
+function winnerPanel(w) {
+  if (w.people.length === 1) {
+    const p = PEOPLE[w.people[0]];
+    return `<aside class="glass-card winner-card" aria-label="Winner">
+      <span class="winner-card__label">Creative Award winner</span>
+      <div class="solo">${photo(p, 700)}</div>
+      <div><div class="winner-card__name">${esc(p.name)}</div>${p.nick ? `<div class="winner-card__sub">${esc(p.nick)}</div>` : ""}</div>
+    </aside>`;
+  }
+  return `<aside class="glass-card winner-card" aria-label="Winning team">
+    <span class="winner-card__label">Creative Award winners</span>
+    <div class="team-grid">${w.people.map(k => { const p = PEOPLE[k];
+      return `<div class="member">${photo(p, 500)}<div><div class="member__name">${esc(p.name)}${p.nick ? ` <span style="font-weight:400;color:var(--muted)">(${esc(p.nick)})</span>` : ""}</div>${w.special === k ? `<div class="member__sub">Special mention</div>` : ""}</div></div>`; }).join("")}</div>
+  </aside>`;
+}
+
+function renderCase(slug) {
+  const w = bySlug[slug];
+  const i = WINNERS.indexOf(w);
+  const prev = WINNERS[i - 1], next = WINNERS[i + 1];
+  document.title = `${w.title} | Creative Awards 2026 | Sprints & Sneakers`;
+
+  app.innerHTML = `
+  <article>
+    <section class="hero"><div class="container">
+      ${breadcrumb([{ label: "Creative Awards", href: "#/" }, { label: w.title }])}
+      <div class="case-hero">
+        <div>
+          <div class="case-hero__top">
+            <a class="btn btn--glass btn--md" href="#/">${ARROW_L} All winners</a>
+            <span class="pill">${esc(w.date)}</span>
+          </div>
+          <h1 tabindex="-1">${esc(w.title)}</h1>
+          <p class="case-hero__client">${esc(w.client)}</p>
+          <p class="case-hero__why"><strong>Why it won.</strong> ${esc(w.why)}</p>
+        </div>
+        ${winnerPanel(w)}
+      </div>
+    </div></section>
+
+    <section class="container case-body" aria-label="Case details">
+      ${w.sections.map(block).join("")}
+      ${w.takeaways ? `<div class="takeaway"><h2>The takeaway</h2><ul>${w.takeaways.map(t => {
+          const k = t.indexOf(":"); return k > 0 && k < 40 ? `<li><strong>${esc(t.slice(0, k + 1))}</strong>${esc(t.slice(k + 1))}</li>` : `<li>${esc(t)}</li>`; }).join("")}</ul></div>` : ""}
+    </section>
+
+    <section class="container" aria-label="More winning cases"><nav class="case-nav">
+      ${prev ? `<a class="navlink" href="#/case/${prev.slug}"><small>Previous winner, ${esc(prev.date.split(" ")[0])}</small><span>${esc(prev.title)}</span></a>` : `<span></span>`}
+      <a class="btn btn--glass btn--md" href="#/">${ARROW_L} Back to all winners</a>
+      ${next ? `<a class="navlink next" href="#/case/${next.slug}"><small>Next winner, ${esc(next.date.split(" ")[0])}</small><span>${esc(next.title)}</span></a>` : `<span></span>`}
+    </nav></section>
+  </article>
+  ${ctaSection()}`;
+}
+
+/* ==========================================================
+   ROUTER (hash based: #/ = overview, #/case/<slug> = case page)
+   ========================================================== */
+let lastSlug = null;
+function route() {
+  const m = location.hash.match(/^#\/case\/([\w-]+)/);
+  if (m && bySlug[m[1]]) {
+    lastSlug = m[1];
+    renderCase(m[1]);
+    window.scrollTo(0, 0);
+  } else {
+    renderOverview();
+    const card = lastSlug && $(`[data-card="${lastSlug}"]`);
+    if (card) card.scrollIntoView({ block: "center" }); else window.scrollTo(0, 0);
+    lastSlug = null;
+  }
+  const h = $("h1", app); if (h) h.focus({ preventScroll: true });
+}
+window.addEventListener("hashchange", route);
+
+/* ==========================================================
+   EVENTS: smooth scroll, lightbox, image fallbacks
+   ========================================================== */
+document.addEventListener("click", e => {
+  const sc = e.target.closest("[data-scroll]");
+  if (sc) { e.preventDefault(); const t = document.getElementById(sc.dataset.scroll); if (t) t.scrollIntoView({ behavior: "smooth" }); return; }
+  const z = e.target.closest("[data-zoom]");
+  if (z) { $("#lb-img").src = img(z.dataset.zoom, 1800); $("#lightbox").showModal(); }
+});
+$("#lb-close").addEventListener("click", () => $("#lightbox").close());
+$("#lightbox").addEventListener("click", e => { if (e.target.id === "lightbox") e.target.close(); });
+$("#lightbox").addEventListener("close", () => { $("#lb-img").removeAttribute("src"); });
+
+/* if an image fails to load: hide it (photos show an initial, gallery items disappear) */
+document.addEventListener("error", e => {
+  const t = e.target;
+  if (t.tagName !== "IMG") return;
+  const shot = t.closest(".shot");
+  if (shot) shot.remove(); else t.remove();
+}, true);
+
+function fitPhoto(t) {
+  const box = t.closest(".photo");
+  if (box && t.naturalWidth) box.style.setProperty("--ar", `${t.naturalWidth} / ${t.naturalHeight}`);
+}
+document.addEventListener("load", e => { if (e.target.tagName === "IMG") fitPhoto(e.target); }, true);
+
+route();
+document.querySelectorAll(".photo img").forEach(i => { if (i.complete) fitPhoto(i); });
+window.addEventListener("hashchange", () => setTimeout(() => document.querySelectorAll(".photo img").forEach(i => { if (i.complete) fitPhoto(i); }), 0));
+</script>
+</body>
+</html>
