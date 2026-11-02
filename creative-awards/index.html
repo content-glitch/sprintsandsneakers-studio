@@ -457,6 +457,7 @@ dialog.lightbox::backdrop { background: rgba(0,0,0,.8); -webkit-backdrop-filter:
    CONFIG
    ========================================================== */
 const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfA6aMy1XOE1CsuVO1i3BKXtutkIxyMh-YqBcfJhhPVPvSxFA/viewform?usp=header";
+const OCTOBER_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdJOB-EwAf4UmpcN2brQIdwS0_SM5cxhE7rwUSvPXAhAoZezQ/viewform";
 
 /* All images come from the shared Google Drive folders.
    For production: download the files, host them on the S&S site and
@@ -832,13 +833,14 @@ function renderOverview() {
 
       <div class="glass-card sept" aria-labelledby="sept-title">
         <div class="sept__body">
-          <span class="pill">Next up: October</span>
-          <h2 id="sept-title">For October we are changing the rules</h2>
-          <p class="sept__intro">We've noticed it isn't always easy to submit something with results, or something you're not sure counts as “creative”. So we're asking the question <strong>differently</strong>:</p>
-          <p class="sept__rules">So don't worry about how creative your end result looks. <strong>What counts is how creative you were in your process</strong>, and <u>the impact that had on your process, results, collaboration and more</u>.</p>
-          <blockquote class="sept__q">How has your creativity this month led to better output than last month? Take us through your thinking, your approach and your key creative choices.</blockquote>
+          <span class="pill">🎃 Halloween Edition</span>
+          <h2 id="sept-title">Too Bold to Survive</h2>
+          <p class="sept__rules">Great ideas don't always make it out alive. This month we're not celebrating what survived, we're digging up what didn't and bringing it back to life.</p>
+          <p class="sept__intro">A partner played it safe, a budget shrank, a deadline won. Bring us your boldest concept: who it was for, what it was meant to achieve, and who (or what) killed it.</p>
+          <blockquote class="sept__q">What's the idea you still think about in the shower, the one you'd pitch again tomorrow if someone let you?</blockquote>
+          <p class="sept__intro">🏆 €100 for 1st place, €50 for 2nd, both as a gift card of your choice. 📅 Submit by 3 November.</p>
         </div>
-        <a class="btn btn--lime btn--md" href="${FORM_URL}" target="_blank" rel="noopener noreferrer">Submit your work</a>
+        <a class="btn btn--lime btn--md" href="${OCTOBER_FORM_URL}" target="_blank" rel="noopener noreferrer">Submit your work</a>
       </div>
     </div>
   </div></section>
