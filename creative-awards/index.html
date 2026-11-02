@@ -356,6 +356,7 @@ a.stat-tile:hover { border-color: var(--lime-border); background: rgba(166,255,0
 .shot:hover { border-color: var(--lime-border); }
 .video { position: relative; width: 100%; max-width: var(--vw, 100%); aspect-ratio: var(--ratio, 16 / 9); border-radius: 16px; overflow: hidden; background: #000; border: 1px solid var(--line); }
 .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: contain; background: #000; }
 .link-out { color: var(--white); font-size: 14px; }
 .link-out:hover { color: var(--lime); }
 
@@ -460,7 +461,8 @@ const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfA6aMy1XOE1CsuVO1i3B
 /* All images come from the shared Google Drive folders.
    For production: download the files, host them on the S&S site and
    change this ONE function to return your own URL (for example `/uploads/awards/${id}.webp`). */
-const img = (id, w = 900) => `https://drive.google.com/thumbnail?id=${id}&sz=w${w}`;
+const isLocal = v => /^(https?:)?\//.test(v);
+const img = (id, w = 900) => isLocal(id) ? id : `https://drive.google.com/thumbnail?id=${id}&sz=w${w}`;
 const video = id => `https://drive.google.com/file/d/${id}/preview`;
 
 /* ==========================================================
@@ -471,8 +473,8 @@ const PEOPLE = {
   nia:     { name: "Nia",     photo: "1_cvu-ESKSRx_s-2805MqMAZ1x5m75y29" },
   lisa:    { name: "Lisa",    photo: "1w2rTuRbx88hIEpR89ZK_Ks2Xm68B-NpS" },
   mick:    { name: "Mick",    photo: "1KssImR1Y-FAih4hxpoSxUNMgjuqBGZCO" },
-  sigi:    { name: "Sigi",    photo: "17Tfz3pxpQacDKrQRpXsserApvCx7QucG" },
-  miguel:  { name: "Miguel",  photo: "1P-U33fcTWmxHZM2Q-t2AwQ5sANgdHiEB" },
+  sigi:    { name: "Sigi",    photo: "/creative-awards/assets/people/sigi.webp" },
+  miguel:  { name: "Miguel",  photo: "/creative-awards/assets/people/miguel.webp" },
   sheriff: { name: "Sharif",  nick: "The Sheriff", photo: "1Td-id7C1INN5ix6rbpZZGy3I_eFN7jzV" },
   guus:    { name: "Guus",    photo: "1jP8h-ri_4aTN8ZYSONmiGuS1hO019T0r" },
   georges: { name: "Georges", photo: "1ZA-I1AJEMWr7QM0ImtlMCVHsWkDRFbFH" },
@@ -690,13 +692,44 @@ const WINNERS = [
       "Breaking silos wins: merging technology, creative, partnerships and performance creates the ultimate consumer experience.",
       "Exceptional ownership: turning a shifting scope into a fully working product under extreme time pressure proves our agility."
     ]
+  },
+  {
+    slug: "september", date: "September 2026",
+    title: "Scaling a Winning Signal",
+    client: "Polpo", people: ["miguel", "sigi"],
+    metric: "44% replies, 70% CTA conversion",
+    why: "It scales a pattern that showed the strongest conversion signal in our outbound data. Miguel turned a highly successful but manual custom offer into a scalable campaign perfectly timed for the new political season, with design support from Sigi.",
+    sections: [
+      [
+        { type: "text", title: "The brief",
+          body: [
+            "Outbound tests showed the strongest signal was offering to run a prospect's dossier through Polpo: the top converting CTA in the whole campaign.",
+            "Miguel turned that highly successful but manual, one-off offer into a scalable campaign, perfectly timed for the new political season." ],
+          quote: { text: "Catch up on six months of your dossier in one read.", by: "Polpo landing page headline" } },
+        { type: "stats", title: "The outbound signal", items: [
+          { v: "44%", l: "Interested replies" },
+          { v: "70%", l: "CTA conversion" } ] }
+      ],
+      [
+        { type: "pillars", cols: 1, title: "Smart execution", items: [
+          { t: "Automated, on-demand value", p: "Prospects name their dossier on the landing page to receive a custom, branded AI Assistant export." } ] },
+        { type: "chips", title: "Why prospects read it to the end", items: [
+          "You read it once instead of working through six months of filings",
+          "Every claim points back to the document it came from",
+          "Yours to forward to your team without editing it first" ] }
+      ],
+      { type: "video", title: "Why it won", id: "/creative-awards/assets/september/why-they-won.mp4", ratio: "16 / 9" }
+    ],
+    takeaways: [
+      "A genius creative choice by Miguel to scale an existing success.",
+      "It enhances both results and team collaboration by replacing heavy manual work with a smart workflow."
+    ]
   }
 ];
 
 /* Upcoming awards (teasers) */
 const UPCOMING = [
-  { key: "sep", abbr: "SEP", title: "September Creative Award", lines: ["Next up", "Submit your work now"], next: true },
-  { key: "oct", abbr: "OCT", title: "October Creative Award", lines: ["Coming soon"] },
+  { key: "oct", abbr: "OCT", title: "October Creative Award", lines: ["Next up", "Submit your work now"], next: true },
   { key: "nov", abbr: "NOV", title: "November Creative Award", lines: ["Coming soon"] },
   { key: "dec", abbr: "DEC", title: "December Creative Award", lines: ["Coming soon"] }
 ];
@@ -799,8 +832,8 @@ function renderOverview() {
 
       <div class="glass-card sept" aria-labelledby="sept-title">
         <div class="sept__body">
-          <span class="pill">Next up: September</span>
-          <h2 id="sept-title">For September we are changing the rules</h2>
+          <span class="pill">Next up: October</span>
+          <h2 id="sept-title">For October we are changing the rules</h2>
           <p class="sept__intro">We've noticed it isn't always easy to submit something with results, or something you're not sure counts as “creative”. So we're asking the question <strong>differently</strong>:</p>
           <p class="sept__rules">So don't worry about how creative your end result looks. <strong>What counts is how creative you were in your process</strong>, and <u>the impact that had on your process, results, collaboration and more</u>.</p>
           <blockquote class="sept__q">How has your creativity this month led to better output than last month? Take us through your thinking, your approach and your key creative choices.</blockquote>
@@ -896,7 +929,8 @@ const R = {
       `<button class="shot" type="button" role="listitem" data-zoom="${id}" aria-label="Enlarge image ${i + 1} of ${s.ids.length}"><img src="${img(id, 700)}" alt="${esc(s.title)} ${i + 1}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></button>`).join("")}</div>
     <p class="panel__note">Click an image to enlarge it.</p>`,
 
-  video: s => `<h2>${esc(s.title)}</h2>
+  video: s => isLocal(s.id) ? `<h2>${esc(s.title)}</h2>
+    <div class="video" style="--ratio:${s.ratio}; ${s.maxw ? `--vw:${s.maxw}` : ""}"><video src="${s.id}" controls playsinline preload="metadata"></video></div>` : `<h2>${esc(s.title)}</h2>
     <div class="video" style="--ratio:${s.ratio}; ${s.maxw ? `--vw:${s.maxw}` : ""}"><iframe src="${video(s.id)}" title="${esc(s.title)}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
     <a class="link-out" href="https://drive.google.com/file/d/${s.id}/view" target="_blank" rel="noopener noreferrer">Open the video in a new tab</a>`,
 
